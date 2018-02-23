@@ -1,7 +1,7 @@
 package lib.joystick;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+// TODO: why?
 public abstract class InterfaceableJoystick extends Joystick {
 	public InterfaceableJoystick(int port) {
 		super(port);

@@ -9,40 +9,25 @@ public class XboxController extends InterfaceableXboxController {
 	/**
 	 * Buttons
 	 */
-	private JoystickButton aButton;
-	private JoystickButton bButton;
-	private JoystickButton xButton;
-	private JoystickButton yButton;
-	private JoystickButton selectButton;
-	private JoystickButton startButton;
+	private JoystickButton aButton, bButton, xButton, yButton, selectButton, startButton;
 	// Thumb-stick buttons
-	private JoystickButton leftJoystickPressButton;
-	private JoystickButton rightJoystickPressButton;
+	private JoystickButton leftJoystickPressButton, rightJoystickPressButton;
 	// Bumpers
-	private JoystickButton leftBumperButton;
-	private JoystickButton rightBumperButton;
+	private JoystickButton leftBumperButton, rightBumperButton;
 	// Triggers
-	private Button leftTriggerButton;
-	private Button rightTriggerButton;
+	private Button leftTriggerButton, rightTriggerButton;
 	
 	/**
 	 * Internal Buttons
 	 */
-	public InternalButton a;
-	public InternalButton b;
-	public InternalButton x;
-	public InternalButton y;
-	public InternalButton select;
-	public InternalButton start;
+	// TODO: what is this?
+	public InternalButton a, b, x, y, select, start;
 	// Thumb-stick InternalButtons
-	public InternalButton leftJoystickPress;
-	public InternalButton rightJoystickPress;
+	public InternalButton leftJoystickPress, rightJoystickPress;
 	// Bumpers
-	public InternalButton leftBumper;
-	public InternalButton rightBumper;
+	public InternalButton leftBumper, rightBumper;
 	// Triggers
-	public InternalButton leftTrigger;
-	public InternalButton rightTrigger;
+	public InternalButton leftTrigger, rightTrigger;
 	
 	public XboxController(int port) {
 		super(port);
@@ -74,6 +59,7 @@ public class XboxController extends InterfaceableXboxController {
 		rightTrigger = new InternalButton();
 	}
 	
+	// TODO: better naming
 	@Override
 	public void check() {
 		if(!internalControl) {
