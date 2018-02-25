@@ -18,7 +18,7 @@ public class StartRecord extends ImprovedCommand {
     protected void execute() {
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    // FIXME Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }

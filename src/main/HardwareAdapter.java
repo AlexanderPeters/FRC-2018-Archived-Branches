@@ -40,9 +40,9 @@ public interface HardwareAdapter extends Constants{
 	//PNEUMATICS
 	public static DoubleSolenoid shifter = new DoubleSolenoid(PCM_Port1, SHIFTER_EXT, SHIFTER_RET);
 	public static DoubleSolenoid tilter = new DoubleSolenoid(PCM_Port1, TILT_EXT, TILT_RET);
+	public static DoubleSolenoid arm = new DoubleSolenoid(PCM_Port1, INTAKE_EXT, INTAKE_RET);
 	public static Compressor comp = new Compressor(PCM_Port1);
 	public static Compressor comp2 = new Compressor(PCM_Port2);
-	public static DoubleSolenoid arm = new DoubleSolenoid(PCM_Port1, INTAKE_EXT, INTAKE_RET);
 //	public static DoubleSolenoid pto = new DoubleSolenoid(PCM_Port1, PTO_EXT, PTO_RET);
 //	public static DoubleSolenoid forklift = new DoubleSolenoid(PCM_Port2, FORK_EXT, FORK_RET);
 //	public static DoubleSolenoid hook = new DoubleSolenoid(PCM_Port2, HOOK_EXT, HOOK_RET);

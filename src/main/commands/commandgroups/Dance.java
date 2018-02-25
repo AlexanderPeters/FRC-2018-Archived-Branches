@@ -19,16 +19,11 @@ public class Dance extends CommandGroup implements Constants, HardwareAdapter {
 		addSequential(new WaitCommand(.2));
 		addSequential(new ArmClose());
 		addSequential(new WaitCommand(.2));
-		addSequential(new TiltDown());
-		addSequential(new WaitCommand(.2));
-		addSequential(new TiltDown());
-		addSequential(new WaitCommand(.2));
-		addSequential(new TiltDown());
-		addSequential(new WaitCommand(.2));
-		addSequential(new TiltDown());
-		addSequential(new WaitCommand(.2));
+		for (int i=0; i<4; ++i) {
+			addSequential(new TiltDown());
+			addSequential(new WaitCommand(.2));
+		}
 		addSequential(new SpinIn());
-		
 	}
 }
 

@@ -226,6 +226,7 @@ public class Robot extends ImprovedRobot {
 		if (!isCompetition && !newFileName.equals(SmartDashboard.getString("New File Name", "")))
 			newFileName = SmartDashboard.getString("New File Name", "");
 		
+		// TODO: what is fileChooser?
 		if (fileChooser.getSelected() != lastSelectedFile && fileChooser.getSelected() != null) {
 			fileChooser.getSelected().start();
 			lastSelectedFile = fileChooser.getSelected();
@@ -241,11 +242,14 @@ public class Robot extends ImprovedRobot {
 		} 
 	}
 	
+	// TODO what kind of list it is?
 	private boolean fileNameInListOfFiles(List<File> l, File f) {
-		for(File file: l) {
-			if(file.getName().toLowerCase().equals(f.getName().toLowerCase()))
-				return true;
+		// TODO: switch from File to Path?
+		for (File file: l) {
+			// TODO comparing with absolute path? file name? instance?
+			if (file.getName().equalsIgnoreCase(f.getName())) return true;
 		}
+		
 		return false;
 	}
 	
@@ -261,8 +265,10 @@ public class Robot extends ImprovedRobot {
 		SmartDashboard.updateValues();
 		checkForSmartDashboardUpdates();
 		autoLooper.outputToSmartDashboard();
-//		dt.check();
-//		pn.check();
+		/*
+		dt.check();
+		pn.check();
+		*/
 		oi.check();
 		// Knowing where you're at
 		if(!isCompetition) {

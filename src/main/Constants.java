@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public interface Constants {
+	// TODO make everything upper case
 	
 	/*************
 	 * VARIABLES *
@@ -21,8 +22,7 @@ public interface Constants {
 	public final int analogSensor = 0;
 	
 	// JOYSTICK DEADBANDS
-	public final double throttleDeadband = 0.02;
-	public final double headingDeadband = 0.02;
+	public final double throttleDeadband = 0.02, headingDeadband = 0.02;
 	
 	// DRIVEHELPER
 	public final double smoothThrottleDif = 0.1; //Set to max difference you want
@@ -35,25 +35,23 @@ public interface Constants {
 	public final double voltageCompensationVoltage = 12.0;
 
 	// LOOPER CONSTANTS
-	public final double kLooperDt = 0.005;// 0.005
+	public final double kLooperDt = 0.005;
 	
 	/*************
 	 * CONSTANTS *
 	 *************/
 	// PNEUMATIC STATES
-	public final DoubleSolenoid.Value EXT = Value.kForward;
-	public final DoubleSolenoid.Value RET = Value.kReverse;
-	public final DoubleSolenoid.Value OFF = Value.kOff;
+	public final DoubleSolenoid.Value EXT = Value.kForward, RET = Value.kReverse, OFF = Value.kOff;
 	
 	// TALON CONTROL MODES
-	public final ControlMode SLAVE_MODE = ControlMode.Follower;
-	public final ControlMode PERCENT_VBUS_MODE = ControlMode.PercentOutput;
+	public final ControlMode SLAVE_MODE = ControlMode.Follower, PERCENT_VBUS_MODE = ControlMode.PercentOutput;
 	public final NeutralMode BRAKE_MODE = NeutralMode.Brake;
 	
 	// ENCODERS STUFF
-	public final double countsPerRev = 4096; // what is this actually supposed to be?
+	public final double countsPerRev = 4096; // TODO: original comment: what is this actually supposed to be?
 	public final FeedbackDevice encoder = FeedbackDevice.CTRE_MagEncoder_Relative;
 	
+	// TODO: either delete the comment or add elevator
 	// ELEVATOR LENGTHS
 	/*public final double spindleDiameter = 2; //placeholder
 	public final double spindleCircum = Math.PI * spindleDiameter;
@@ -81,20 +79,14 @@ public interface Constants {
 	 * PORTS *
 	 *********/	
 	// XBOX PORTS
-	public final int Xbox_Port = 0;
-	public final int Xbox_Port2 = 1;
+	public final int Xbox_Port = 0, Xbox_Port2 = 1;
 	
 	// DRIVETRAIN TALONS (CAN BUS)
-	public final int LEFT_Drive_Master = 3;
-	public final int LEFT_Drive_Slave1 = 6;
-	public final int RIGHT_Drive_Master = 12;
-	public final int RIGHT_Drive_Slave1 = 5;
-	public final int LEFT_Drive_Slave2 = 9;
-	public final int RIGHT_Drive_Slave2 = 4;
+	public final int LEFT_Drive_Master = 3, LEFT_Drive_Slave1 = 6, RIGHT_Drive_Master = 12, RIGHT_Drive_Slave1 = 5,
+			LEFT_Drive_Slave2 = 9, RIGHT_Drive_Slave2 = 4;
 	
 	// INTAKE MOTORS	
-	public final int LEFT_Intake = 11;
-	public final int RIGHT_Intake = 10;
+	public final int LEFT_Intake = 11, RIGHT_Intake = 10;
 	
 	// ELEVATOR MOTORS
 	public final int LEFT_Elevator_Master = 8;

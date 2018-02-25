@@ -12,6 +12,7 @@ import main.commands.commandgroups.PushOutCubeOff;
 import main.commands.pneumatics.shift.ShiftDown;
 import main.commands.pneumatics.shift.ShiftUp;
 
+// TODO: make OI static
 public class OI extends CommandGroup implements Constants, HardwareAdapter {
 	public static OI instance;
 	
