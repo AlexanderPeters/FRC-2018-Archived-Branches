@@ -4,6 +4,7 @@ package Util;
 import main.Constants;
 import main.HardwareAdapter;
 
+// TODO do we need this class
 public class DriveTrainAutonomousHelper implements Constants, HardwareAdapter{
 	/*private double leftVelocityTarget, leftPositionTarget;
 	private double rightVelocityTarget, rightPositionTarget;

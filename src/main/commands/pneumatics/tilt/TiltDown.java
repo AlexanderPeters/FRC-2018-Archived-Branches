@@ -6,7 +6,6 @@ import main.Constants;
 import main.HardwareAdapter;
 
 public class TiltDown extends CommandGroup implements Constants, HardwareAdapter{
-    // Called just before this Command runs the first time
     public TiltDown() {
     	addSequential(new Tilt(EXT));
     	addSequential(new WaitCommand(0.1));

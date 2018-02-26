@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import main.Constants;
 import main.HardwareAdapter;
 
+// TODO are we using this?
 public class MoveToScale extends CommandGroup implements Constants, HardwareAdapter {
 	public MoveToScale() {
 	}

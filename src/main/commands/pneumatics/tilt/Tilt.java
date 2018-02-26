@@ -20,6 +20,7 @@ public class Tilt extends ImprovedCommand implements Constants, HardwareAdapter 
 
 	@Override
 	protected boolean isFinished() {
+		// FIXME need to return true when finished
 		return false;
 	}
 }

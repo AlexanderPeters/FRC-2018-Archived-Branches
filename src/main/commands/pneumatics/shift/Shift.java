@@ -6,8 +6,8 @@ import main.Constants;
 import main.Robot;
 
 public class Shift extends ImprovedCommand implements Constants{
-
 	private DoubleSolenoid.Value v;
+	
     public Shift(DoubleSolenoid.Value v) {
     	requires(Robot.pn);
     	this.v = v;

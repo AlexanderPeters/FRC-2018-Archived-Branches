@@ -6,7 +6,8 @@ package Util;
 //import com.ni.vision.NIVision.ShapeMode;
 //import edu.wpi.first.wpilibj.CameraServer;
 //import edu.wpi.first.wpilibj.Timer;
-//
+// TODO do we need this class?
+// TODO make the comment more readable, i.e. remove //s and replace with /**/
 //public class DriveCam {
 //	int session;
 //  Image frame;

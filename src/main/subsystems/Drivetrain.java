@@ -6,14 +6,15 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import interfacesAndAbstracts.RobotSubsystem;
 import main.commands.drivetrain.Drive;
 
-
+// TODO are we using leftDriveSlave2?
+// TODO do we need an instance at all?
 public class Drivetrain extends RobotSubsystem  {
 	private static DifferentialDrive driveTrain = new DifferentialDrive(leftDriveMaster, rightDriveMaster);
 	private static Drivetrain instance;
 	
 	//TELEOP DRIVING
 	private DriveHelper helper = new DriveHelper(7.5);
-	private boolean engaged = false;
+	private boolean engaged = false; // TODO are we using this
 
 	public Drivetrain() {
 		setTalonDefaults();
@@ -72,7 +73,7 @@ public class Drivetrain extends RobotSubsystem  {
 	}
 	
 	private void setVoltageComp(boolean set, double voltage, int timeout) {
-		//Voltage Compensation
+		// Voltage Compensation
 		leftDriveMaster.enableVoltageCompensation(set);
 		leftDriveSlave1.enableVoltageCompensation(set);
 //		leftDriveSlave2.enableVoltageCompensation(set);

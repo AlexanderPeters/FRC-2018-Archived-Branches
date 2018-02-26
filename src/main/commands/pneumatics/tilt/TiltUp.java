@@ -6,7 +6,6 @@ import main.Constants;
 import main.HardwareAdapter;
 
 public class TiltUp extends CommandGroup implements Constants, HardwareAdapter{
-    // Called just before this Command runs the first time
     public TiltUp() {
     	addSequential(new Tilt(RET));
     	addSequential(new WaitCommand(0.1));

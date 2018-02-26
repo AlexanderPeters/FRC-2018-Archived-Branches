@@ -19,7 +19,7 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	public final double spindleCircum = Math.PI * spindleDiameter;
 	public final double elevatorHeight = 86;  
 	public final double elevatorTolerance = 2;
-	public final double switchHeight = 24; //set this in encoder units today...
+	public final double switchHeight = 24; // TODO set this in encoder units today...
 	public final double scaleHeight = 70; 
 	public final double nearSetpoint = 12;
 	public final double nearSetpointDown = 36;
@@ -27,19 +27,18 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	// ELEVATOR SPEEDS
 	public final double defaultElevatorSpeed = 0.8;
 	public final double slowElevatorSpeed = 0.2;
-	public final int maxVelocity = 100523; //GET THIS VALUE PLEASE
+	public final int maxVelocity = 100523; // TODO GET THIS VALUE PLEASE
 	public final int cruiseVelocity = maxVelocity * 3/4; 
-	public final int acceleration = 6250; //native units of encoder per 100 ms per second- PLACEHOLDER
+	public final int acceleration = 6250; // native units of encoder per 100 ms per second- PLACEHOLDER
 	
 	// MOTION MAGIC ELEVATOR STUFF
 	public final int elevatorIdx = 0;
 	public final int pidIdx = 0;
-	public final double fGain = 1023 / maxVelocity ;// 1023/max speed
+	public final double fGain = 1023 / maxVelocity;
 	public final double elevator_kP = 0;
 	public final double elevator_kI = 0;
 	public final double elevator_kD = 0;
-			
-	private EncoderHelper encoderHelper = new EncoderHelper();
+	
 	private DriveHelper driveHelper = new DriveHelper(7.5);
 	
 	//max velocity was 100523u/100ms	
@@ -53,6 +52,7 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	 * This is to make a trapezoidal motion profile for the elevator... Hopefully it will work.
 	 */
 	private void setStatusFrames() {
+		// TODO do we need this method?
 		//something goes here but idk what
 	}
 		
@@ -74,7 +74,6 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 		setAccelAndVeloDefaults();
 		setPIDValues();
 	}
-
 	
 	/*************************
 	 * TALON SUPPORT METHODS *
@@ -191,7 +190,7 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	 **********************/
 	
 	private double inchesToElevatorEncoderTicks(double inches) {
-		return encoderHelper.inchesToEncoderTicks(inches, spindleCircum, countsPerRev);
+		return EncoderHelper.inchesToEncoderTicks(inches, spindleCircum, countsPerRev);
 	}
 	
 	/***************
@@ -221,14 +220,11 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	// Moves fast to a position if far away, slows down when it gets closer, and stops when it reaches
 	// the position within a tolerance.
 	public void moveToPos(double pos) {
-//		if(isIntakeAtPos(pos)) {
-//			elevatorMaster.set(0);
-//		}
+//		if (isIntakeAtPos(pos)) elevatorMaster.set(0);
 		if (isIntakeNearPos(pos, nearSetpoint)) {
 			if (isIntakeBelowPos(pos)) elevatorMaster.set(slowElevatorSpeed);
 			else elevatorMaster.set(-1 * slowElevatorSpeed);
-		}
-		else {
+		} else {
 			if (isIntakeBelowPos(pos)) elevatorMaster.set(defaultElevatorSpeed);
 			else elevatorMaster.set(defaultElevatorSpeed * -1); 
 		}
@@ -237,11 +233,9 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	public void moveDown() {
 		if (isArmAtBottom()) {
 			elevatorMaster.set(PERCENT_VBUS_MODE, 0);
-		}
-		else if (isIntakeNearPos(0, nearSetpointDown)) {
+		} else if (isIntakeNearPos(0, nearSetpointDown)) {
 			elevatorMaster.set(getDistanceTravelled() * (-1/36));
-		}
-		else {
+		} else {
 			elevatorMaster.set(-1 * defaultElevatorSpeed);
 		}
 	}
@@ -249,11 +243,9 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	public void moveUp() {
 		if (isArmAtTop()) {
 			elevatorMaster.set(0);
-		}
-		else if(isIntakeNearPos(elevatorHeight, nearSetpoint)) {
+		} else if (isIntakeNearPos(elevatorHeight, nearSetpoint)) {
 			elevatorMaster.set(slowElevatorSpeed);
-		}
-		else {
+		} else {
 			elevatorMaster.set(defaultElevatorSpeed);
 		}
 	}
@@ -273,7 +265,7 @@ public class Elevator extends Subsystem implements Constants, HardwareAdapter {
 	public void stop() {
 		elevatorMaster.set(0);
 	}
-	
+
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new MoveWithJoystick());

@@ -4,6 +4,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 
 public class DriverCamera {
+	// TODO put private/public based on need, or remove both of them
 	CameraServer camServer;
 	UsbCamera cam;
 

@@ -86,7 +86,8 @@ public class DriveHelper implements Constants{
     		return Math.signum(throttle);
     	else 
     		return throttle;
-    }    
+    }
+    // TODO delete the commented code or uncomment it
     /*
     private double lastThrottleValue = 0.0;
     private int smoothingnum = 0;

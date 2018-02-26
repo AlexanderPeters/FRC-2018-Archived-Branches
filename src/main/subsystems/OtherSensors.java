@@ -9,6 +9,8 @@ import main.commands.driveAlerts.AlertDriver;
 public class OtherSensors extends Subsystem implements Constants, HardwareAdapter {
 	private boolean elevatorLastState;
 	private boolean elevatorCurrentState;
+	private boolean IntakeLastState;
+	private boolean IntakeCurrentState;
 	private Command flashLights = new AlertDriver();
 
 	public OtherSensors() {
@@ -24,13 +26,10 @@ public class OtherSensors extends Subsystem implements Constants, HardwareAdapte
 		elevatorLastState = elevatorCurrentState;
 	}
 
-	private boolean IntakeLastState;
-	private boolean IntakeCurrentState;
-
 	@Override
 	protected void initDefaultCommand() {
 	}
-
+	
 	public boolean isIntakeLastState() {
 		return elevatorLastState;
 	}
@@ -44,13 +43,13 @@ public class OtherSensors extends Subsystem implements Constants, HardwareAdapte
 	}
 
 	private void Intake() {
-
+		// TODO do we need this pringln
 		System.out.println(IntakeCurrentState);
 		if (IntakeLastState != IntakeCurrentState)
 			flashLights.start();
 		IntakeLastState = IntakeCurrentState;
 	}
-
+	
 	protected void initDefaultCommand1() {
 	}
 

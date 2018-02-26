@@ -10,6 +10,7 @@ public class Intake extends Subsystem implements Constants, HardwareAdapter {
 	}
 	
 	// NOT SURE IF WE SHOULD USE AN ENUM- TESTING SWITCH METHODS FIRST
+	// TODO do we need this
 //	public static enum CubeInIntake {
 //		HasCube, NoCube
 //	}
@@ -38,7 +39,7 @@ public class Intake extends Subsystem implements Constants, HardwareAdapter {
 //	public boolean isCubeInIntake() {
 //		return intakeSwitch.get();
 //	}
-//	
+	
 	@Override
 	protected void initDefaultCommand() {
 	}

@@ -5,6 +5,7 @@ import main.Constants;
 import main.HardwareAdapter;
 import main.Robot;
 
+// TODO are we using this
 public class MoveToSwitch extends CommandGroup implements Constants, HardwareAdapter {
 	public final double switchHeight = 24; //set this in encoder units today...
 

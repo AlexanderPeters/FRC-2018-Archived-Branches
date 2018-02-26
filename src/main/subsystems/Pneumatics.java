@@ -7,6 +7,7 @@ import main.HardwareAdapter;
 
 public class Pneumatics extends Subsystem implements Constants, HardwareAdapter {
 	private boolean down = false;
+	// TODO make the code modify down or remove it entirely
 
 	public Pneumatics() {
 		shifter.set(EXT);
