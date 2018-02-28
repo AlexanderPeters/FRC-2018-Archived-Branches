@@ -25,7 +25,7 @@ public class Logger implements Constants {
 	private boolean fileSelected = false;
 	//Restricted Files List
 	private final List<File> restrictedFilesList = new ArrayList<File>();
-	
+	// TODO switch to Path if possible
 	public Logger() {
 		//Adding Restricted Files
 		restrictedFilesList.add(new File(outputPath +"/README_File_Paths.txt"));
@@ -45,6 +45,7 @@ public class Logger implements Constants {
 					           " one will not be created.");		
 	}
 	
+	// TODO: remove debug code
 	public void deleteFile(String path) {
 		File file = new File(path);
 		System.out.println(file.getName());
@@ -79,8 +80,7 @@ public class Logger implements Constants {
 	
 	// Returns the number of lines within the file located at filePath.
 	public int countLines() throws IOException {
-		InputStream is = new BufferedInputStream(new FileInputStream(file));
-		try {
+		try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
 	        byte[] c = new byte[1024];
 	        int count = 0;
 	        int readChars = 0;
@@ -91,17 +91,12 @@ public class Logger implements Constants {
 	                if (c[i] == '\n') ++count;
 	        }
 	        return (count == 0 && !empty) ? 1 : count;
-	    } finally {
-	        is.close();
 	    }
 	}
 	
 	// Returns the specified line of the file located at filePath as a string.
 	public String getLine(int lineNum) {
-		BufferedReader br = null;
-		String chosenLine = null;
-		try {
-			br = new BufferedReader(new FileReader(file));
+		try (BufferedReader br = new BufferedReader(new FileReader(file))){
 			List<String> lines = new ArrayList<>();
 			String line = null;
 			int i = 0;
@@ -115,21 +110,11 @@ public class Logger implements Constants {
 				lines.add(line);
 			}
 
-			chosenLine = lines.get(lineNum - 1); // First line is # 1, but first item in array is #0
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			return lines.get(lineNum - 1); // First line is # 1, but first item in array is #0
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			if (br != null) {
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+			return null;
 		}
-		return chosenLine;
 	}
 	
 	// Removes the Nth line located within the file at filePath.
